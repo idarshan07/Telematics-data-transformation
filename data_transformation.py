@@ -34,6 +34,10 @@ def data_transform(df):
 
     #Additional step to drop duplicate values(not required for given json file)
     df.drop_duplicates(inplace = True)
+    #Drops rows with null values in "averageSpeed" column
+    df = df.dropna(subset = ["averageSpeed"])
+    #Drops "enginHours" column due to null values
+    df = df.drop(["engineHours"], axis = 1)
     return df
 
 #Save cleaned data in parquet file

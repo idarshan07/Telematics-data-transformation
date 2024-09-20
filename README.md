@@ -16,14 +16,16 @@
 - note: Scripts written in Python 3.12.5
 
 ## Quick start
-- clone this repository.
-- run data_transformation.py
-    - load_data function will read json file and load data into pandas dataframe.
-    - convert_duration function can convert duration fields in seconds from d.HH:MM:SS format
-    - data_transform function can apply data_transformation on duration fields, convert 3 columns in datetime format and remove duplicate rows from dataframe(there is no duplicate value in given data).
-    - Also it drops 11 rows where averageSpeed is null because data shows those vehicle did not make any trips and drops "engineHours" column as it has 2101 missing observations.
-    - save_output function writes cleaned data in parquet file in output folder.
-- run test_conversion.py
+- Clone this repository.
+- Run **data_transformation.py**
+    - **load_data** function will read json file and load data into pandas dataframe.
+    - **convert_duration** function can convert duration fields in seconds from d.HH:MM:SS format
+    - **data_transform** function can apply **convert_duration** on duration fields, convert 3 columns in datetime format and remove duplicate rows from dataframe(there is no duplicate value in given data).
+    - Also it drops 11 rows where **averageSpeed** is null because data shows those vehicle did not make any trips and drops **engineHours** column as it has 2101 missing observations.
+    - **save_output** function writes cleaned data in parquet file in output folder.
+- Run **test_conversion.py**
+  ```cmd
     - pyhton -m unittest -v test_conversion.py
-    - It runs unit tests on convert_duration function which converts duration fields in seconds.
-    - follow comments in code and make changes in 'duration' and 'expected_durations' to further verify different datetime values.
+  ```
+    - It runs unit tests on **convert_duration** function which converts duration fields in seconds.
+    - follow comments in code and make changes in **duration** and **expected_durations** to further verify different datetime values.
